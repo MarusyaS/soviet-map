@@ -2,7 +2,6 @@ import { MapContainer, TileLayer, MapControl, Marker, Popup } from 'react-leafle
 import {render} from 'react-dom';
 import Container from '@mui/material/Container';
 import 'leaflet/dist/leaflet.css';
-// import MarkerClusterGroup from 'react-leaflet-markercluster';
 import L from 'leaflet';
 // import API_BASE_URL from './config';
 import './Map.css';
@@ -18,9 +17,8 @@ import { Link } from "react-router-dom";
 import CircleIcon from '@mui/icons-material/Circle';
 import SquareIcon from '@mui/icons-material/Square';
 import { Typography,Box, Paper, Grid, TableBody, TableRow, TableCell, TableContainer, Table } from '@mui/material';
-// import MarkerClusterGroup from "./MakeClusterGroup";
 
-
+import MarkerClusterGroup from 'react-leaflet-cluster';
 
 const position = [54.104403, 51.175140];
 
@@ -39,27 +37,15 @@ var markerShapes = [ { shape: '<circle cx="10" cy="10" r="5" />', color : '#fc92
 
 
 
-// var greenIcon = new L.Icon({
-//   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-//   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-//   iconSize: [25, 41],
-//   iconAnchor: [12, 41],
-//   popupAnchor: [1, -34],
-//   shadowSize: [41, 41]
-// });
+var customIcon =  L.divIcon({ html: `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+viewBox="0 0 100 100" xml:space="preserve">
+<circle style="fill:#ef6c00;stroke:#fcfcfc;stroke-width:4;stroke-miterlimit:10;"  cx="50" cy="50" r="46"/>
+</svg>` , 
+className: "funerary",
+iconSize: [20, 20],
+iconAnchor: [10, 0]});
 
-var redIcon = new L.Icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
 
-// interface MapStationsProps {
-//     latlons: [number, number][];
-//   }
 
 
 
@@ -72,7 +58,7 @@ export function NewMap() {
                 <Marker
                     //   key = {item.ID}
                     position={[item.LAT, item.LON] }
-                    icon = {redIcon}
+                    icon = {customIcon}
                     >
                 <Popup>
                 <b> {item.Author} </b> <br /> {item.Year} <br /> {item.Type} <br/> {item.style} <br/> {item.Description}
@@ -94,8 +80,12 @@ export function NewMap() {
                             <TileLayer
                                 url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
                                 attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' />
-
-                                {markers}
+                                <MarkerClusterGroup
+        chunkedLoading
+      >
+         {markers}
+      </MarkerClusterGroup>
+                               
                     
                     </MapContainer>
                 </Paper> </Box>
