@@ -1,12 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import { NewMap } from './Map';
+import { Map } from './test';
 // import { SovietData } from './MakeClusterGroup';
 
 function App() {
   return (
     <div className="App">
       {<NewMap/>} 
+      {/* {<Map/>} */}
       {/* {<SovietData/>} */}
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
