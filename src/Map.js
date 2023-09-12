@@ -42,16 +42,7 @@ import {
 } from '@mui/material';
 // import customIcon from './Markers.js';
 import MarkerClusterGroup from 'react-leaflet-cluster';
-import { ReactComponent as construct }  from './markers/construct.svg';
-import { ReactComponent as constructNeoclass } from './markers/constructNeoclass.svg';
-import { ReactComponent as eclectic } from './markers/eclectic.svg';
-import { ReactComponent as functional } from './markers/functional.svg';
-import { ReactComponent as modern } from './markers/modernism.svg';
-import { ReactComponent as neoclassic } from './markers/neoclassic.svg';
-import { ReactComponent as postconstructiv } from './markers/postconstruct.svg';
-import { ReactComponent as postorient } from './markers/postconstructorieny.svg';
-import { ReactComponent as postconneo } from './markers/postcostructNeoclass.svg';
-import { ReactComponent as unknown } from './markers/unknown.svg';
+import Legend from './legend';
 
 
 const position = [54.104403, 51.175140];
@@ -63,7 +54,17 @@ var ImgSrc = 'https://pastvu.com/_p/d/h/u/a/huannyd9o8722acob6.jpg';
   
 
 export function NewMap() {
-
+    const [searchInput, setSearchInput] = useState("");
+    const handleChange = (e) => {
+        e.preventDefault();
+        setSearchInput(e.target.value);
+      };
+      
+      if (searchInput.length > 0) {
+          items.filter((item) => {
+          return item.Author.match(searchInput);
+      });
+      }
     const markers = items.map(                        
             item => (
 
@@ -99,6 +100,11 @@ export function NewMap() {
       <><Grid container spacing={2} justifyContent="space-evenly" alignItems="stretch" sx={{ paddingTop: '40px' }}>
             <Grid item xs={8}>
                 <Box>
+                    <input
+                    type="search"
+                    placeholder="Search here"
+                    onChange={handleChange}
+                    value={searchInput} />
                     <Paper elevation={3}>
 
                         <MapContainer center={position} zoom={3.2} scrollWheelZoom={true} attributionControl={false}>
@@ -111,9 +117,9 @@ export function NewMap() {
                                 // maxZoom: 22
                                 />
 
-                                <MarkerClusterGroup
+                                 <MarkerClusterGroup
                                     chunkedLoading
-                                >
+                                > 
                                     {markers}
                                 </MarkerClusterGroup>
 
@@ -126,75 +132,7 @@ export function NewMap() {
                 <Box>
                     <Paper elevation={3}>
 
-                        <TableContainer component={Paper}>
-                            <Table aria-label="simple table">
-                                <TableBody>
-                                    <TableRow>
-                                        <TableCell align="center" colSpan={3} sx={{ fontSize: 23 }}>
-                                            <Typography sx={{ fontWeight: 'bold' }}> Условные обозначения </Typography>
-                                        </TableCell>
-
-                                     </TableRow>
-                                    <TableRow size="small">  
-                                        <TableCell> 
-                                           
-                                        <SvgIcon component={construct}  inheritViewBox='True' />
-                                        </TableCell>
-                                        <TableCell component="th" scope="row">
-                                        <Typography> конструктивизм </Typography>
-                                    </TableCell></TableRow> 
-                                     <TableRow>
-                                        <TableCell>
-                                        <SvgIcon component={postconstructiv}  inheritViewBox='True' />
-                                        </TableCell>
-                                        <TableCell> <Typography> постконструктивизм </Typography>  </TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell>
-                                        <SvgIcon component={functional}  inheritViewBox='True' />
-                                        </TableCell>
-                                        <TableCell> <Typography> функционализм </Typography>  </TableCell>
-                                    </TableRow> 
-                                    <TableRow>
-                                        <TableCell>
-                                        <SvgIcon component={modern}  inheritViewBox='True' />
-                                        </TableCell>
-                                        <TableCell> <Typography> модернизм </Typography>  </TableCell>
-                                    </TableRow> 
-                                    <TableRow>
-                                        <TableCell>
-                                        <SvgIcon component={neoclassic}  inheritViewBox='True' />
-                                        </TableCell>
-                                        <TableCell> <Typography> неоклассицизм </Typography>  </TableCell>
-                                    </TableRow> 
-                                    <TableRow>
-                                        <TableCell>
-                                        <SvgIcon component={eclectic}  inheritViewBox='True' />
-                                        </TableCell>
-                                        <TableCell> <Typography> эклектика </Typography>  </TableCell>
-                                    </TableRow> 
-                                    <TableRow>
-                                        <TableCell>
-                                        <SvgIcon component={postorient}  inheritViewBox='True' />
-                                        </TableCell>
-                                        <TableCell> <Typography> постконструктивизм ориентальный </Typography>  </TableCell>
-                                    </TableRow> 
-                                    <TableRow>
-                                        <TableCell>
-                                        <SvgIcon component={constructNeoclass}  inheritViewBox='True' />
-                                        </TableCell>
-                                        <TableCell> <Typography> конструктивизм, неоклассицизм </Typography>  </TableCell>
-                                    </TableRow> 
-                                    <TableRow>
-                                        <TableCell>
-                                        <SvgIcon component={postconneo}  inheritViewBox='True' />
-                                        </TableCell>
-                                        <TableCell> <Typography> постконструктивизм, неоклассицизм </Typography>  </TableCell>
-                                    </TableRow> 
-
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
+                        <Legend/>
                     </Paper>
                 </Box>
             </Grid>

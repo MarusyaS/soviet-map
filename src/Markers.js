@@ -68,12 +68,12 @@ import {ReactComponent as construct}  from './markers/construct.svg';
         html: `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
         viewBox="0 0 100 100" xml:space="preserve">
         <defs>
-        <linearGradient id="grad">
-        <stop offset="50%" stop-color="yellow"/>
-        <stop offset="50%" stop-color="grey"/>
+        <linearGradient id="hal-grad">
+        <stop offset="50%" stop-color="#00AB6F"/>
+        <stop offset="50%" stop-color="#FF5300"/>
         </linearGradient>
         </defs>
-        <circle style="fill:url(#grad);stroke:#fcfcfc;stroke-width:4;stroke-miterlimit:10;"  cx="50" cy="50" r="46"/>
+        <circle style="fill:url(#hal-grad);stroke:#fcfcfc;stroke-width:4;stroke-miterlimit:10;"  cx="50" cy="50" r="46"/>
         </svg>` , 
     className: "constructivism",
     iconSize: [20, 20],
@@ -83,12 +83,13 @@ import {ReactComponent as construct}  from './markers/construct.svg';
         html: `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
         viewBox="0 0 100 100" xml:space="preserve">
         <defs>
-        <linearGradient id="grad">
-        <stop offset="50%" stop-color="yellow"/>
-        <stop offset="50%" stop-color="grey"/>
+        <linearGradient id="half-grad">
+        
+        <stop offset="50%" stop-color="rgb(0, 111, 72)"/>
+        <stop offset="50%" stop-color="rgb(255, 83, 0)"/>
         </linearGradient>
         </defs>
-        <circle style="fill:url(#grad);stroke:#fcfcfc;stroke-width:4;stroke-miterlimit:10;"  cx="50" cy="50" r="46"/>
+        <circle style="fill:url(#half-grad);stroke:#fcfcfc;stroke-width:4;stroke-miterlimit:10;"  cx="50" cy="50" r="46"/>
         </svg>` , 
     className: "constructivism",
     iconSize: [20, 20],

@@ -1,0 +1,3 @@
+
+
+const [searchInput, setSearchInput] = useState("");
