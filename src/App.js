@@ -2,11 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import { NewMap } from './Map';
 import { Map } from './test';
+import searchBar from './search';
 // import { SovietData } from './MakeClusterGroup';
 
 function App() {
   return (
     <div className="App">
+      {/* <searchBar/> */}
       {<NewMap/>} 
       {/* {<Map/>} */}
       {/* {<SovietData/>} */}

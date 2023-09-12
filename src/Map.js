@@ -55,43 +55,25 @@ var ImgSrc = 'https://pastvu.com/_p/d/h/u/a/huannyd9o8722acob6.jpg';
 
 export function NewMap() {
     const [searchInput, setSearchInput] = useState("");
-    const handleChange = (e) => {
-        e.preventDefault();
-        setSearchInput(e.target.value);
-      };
-      
-      if (searchInput.length > 0) {
-          items.filter((item) => {
-          return item.Author.match(searchInput);
-      });
-      }
-    const markers = items.map(                        
-            item => (
+    const [searchParam] = useState(["Year"]);
 
-                <Marker
-                    //   key = {item.ID}
-                    position={[item.LAT, item.LON] }
-
-                    icon = {item.style === 'конструктивизм' ? constructivismIcon : 
-                    item.style === 'постконструктивизм'? postconstructivismIcon :
-                    item.style === 'постконструктивизм (восточный стиль)' ? postconstructivismorientIcon :
-                    item.style === 'советский неоклассицизм' ? neoclassicIcon :
-                    item.style === 'советский модернизм' ? modernismIcon :
-                    item.style === 'функционализм' ? functionalismIcon : 
-                    item.style === 'эклектика' ? eclecticIcon :
-                    item.style === 'конструктивизм, советский неоклассицизм' ? constructneoclassIcon :
-                    item.style === 'постконструктивизм, советский неоклассицизм' ? postconstructneoclassIcon :
-                    unknownIcon 
-                }
-                    >
-                <Popup>
-                <img src={ImgSrc} style={{width: '200px',  display: 'block', margin: '0 auto' }} alt="Illustartion"/> 
-                
-                 <br /> <b>Автор: </b> {item.Author}<br /> <b>Год: </b>{item.Year} <br /> <b>Тип памятника: </b> {item.Type} <br/> <b>Стиль: </b> {item.style} <br/> <br/> {item.Description}
-
-                </Popup>
-                </Marker>
-      ));
+    function search(items) {
+        return items.filter((item) => {
+            if ((item[searchParam] !== undefined) & (item[searchParam] !== null)){
+                return searchParam.some((newItem) => {
+                    return (
+                        item[newItem]
+                            .toString()
+                            .toLowerCase()
+                            .indexOf(searchInput.toLowerCase()) > -1
+                    );
+                });
+            }
+            else {
+                return null;
+            }
+        });
+    }
 
 
 
@@ -100,11 +82,25 @@ export function NewMap() {
       <><Grid container spacing={2} justifyContent="space-evenly" alignItems="stretch" sx={{ paddingTop: '40px' }}>
             <Grid item xs={8}>
                 <Box>
-                    <input
-                    type="search"
-                    placeholder="Search here"
-                    onChange={handleChange}
-                    value={searchInput} />
+                <div className="search-wrapper">
+                        <label htmlFor="search-form">
+                            <input
+                                type="search"
+                                name="search-form"
+                                id="search-form"
+                                className="search-input"
+                                placeholder="Поиск по дате..."
+                                value={searchInput}
+                                /*
+                                // set the value of our useState q
+                                //  anytime the user types in the search box
+                                */
+                                onChange={(e) => setSearchInput(e.target.value)}
+                            />
+                            {/* <span className="sr-only">Search countries here</span> */}
+                        </label>
+                    </div>
+
                     <Paper elevation={3}>
 
                         <MapContainer center={position} zoom={3.2} scrollWheelZoom={true} attributionControl={false}>
@@ -120,7 +116,31 @@ export function NewMap() {
                                  <MarkerClusterGroup
                                     chunkedLoading
                                 > 
-                                    {markers}
+                                 {search(items).map((item) => (
+                                         <Marker
+                                         //   key = {item.ID}
+                                         position={[item.LAT, item.LON] }
+                     
+                                         icon = {item.style === 'конструктивизм' ? constructivismIcon : 
+                                         item.style === 'постконструктивизм'? postconstructivismIcon :
+                                         item.style === 'постконструктивизм (восточный стиль)' ? postconstructivismorientIcon :
+                                         item.style === 'советский неоклассицизм' ? neoclassicIcon :
+                                         item.style === 'советский модернизм' ? modernismIcon :
+                                         item.style === 'функционализм' ? functionalismIcon : 
+                                         item.style === 'эклектика' ? eclecticIcon :
+                                         item.style === 'конструктивизм, советский неоклассицизм' ? constructneoclassIcon :
+                                         item.style === 'постконструктивизм, советский неоклассицизм' ? postconstructneoclassIcon :
+                                         unknownIcon 
+                                     }
+                                         >
+                                     <Popup>
+                                     <img src={ImgSrc} style={{width: '200px',  display: 'block', margin: '0 auto' }} alt="Illustartion"/> 
+                                     
+                                      <br /> <b>Автор: </b> {item.Author}<br /> <b>Год: </b>{item.Year} <br /> <b>Тип памятника: </b> {item.Type} <br/> <b>Стиль: </b> {item.style} <br/> <br/> {item.Description}
+                     
+                                     </Popup>
+                                     </Marker>))}
+                                    
                                 </MarkerClusterGroup>
 
 
