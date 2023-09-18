@@ -12,9 +12,7 @@ import { ReactComponent as unknown } from './markers/unknown.svg';
 
 import {
     Typography,
-    Box,
     Paper,
-    Grid,
     TableBody,
     TableRow,
     TableCell,
@@ -72,12 +70,12 @@ export default function Legend() {
                     </TableCell>
                     <TableCell> <Typography> эклектика </Typography>  </TableCell>
                 </TableRow> 
-                <TableRow>
+                {/* <TableRow>
                     <TableCell>
                     <SvgIcon component={postorient}  inheritViewBox='True' />
                     </TableCell>
                     <TableCell> <Typography> постконструктивизм ориентальный </Typography>  </TableCell>
-                </TableRow> 
+                </TableRow>  */}
                 <TableRow>
                     <TableCell>
                     <SvgIcon component={constructNeoclass}  inheritViewBox='True' />
@@ -95,5 +93,5 @@ export default function Legend() {
         </Table>
     </TableContainer>
     );
-  }
+  };
   
