@@ -15,14 +15,16 @@ import {
     Box,
     Paper,
     Grid,
+    TextField,
 } from '@mui/material';
 // import customIcon from './Markers.js';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import Legend from './legend';
+import { red } from '@mui/material/colors';
 
 
 const position = [54.104403, 51.175140];
-
+const inputColor = red[800];
 
 var ImgSrc = 'https://pastvu.com/_p/d/h/u/a/huannyd9o8722acob6.jpg';
 
@@ -54,36 +56,14 @@ export function NewMap() {
 
     return (
 
-      <><Grid container spacing={2} justifyContent="space-evenly" alignItems="stretch" sx={{ paddingTop: '10px' }}>
-        <Grid item xs={8}>
-            <Typography variant="h3" gutterBottom> Карта советской архитектуры </Typography>
-        </Grid>     
-        <Grid item xs={3}>
-          <div  className="search-wrapper">
-            <label htmlFor="search-form">
-                <input
-                    type="search"
-                    name="search-form"
-                    id="search-form"
-                    className="search-input"
-                    placeholder="Поиск по дате..."
-                    value={searchInput}
-                    /*
-                    // set the value of our useState q
-                    //  anytime the user types in the search box
-                    */
-                    onChange={(e) => setSearchInput(e.target.value)}
-                />
-                {/* <span className="sr-only">Search countries here</span> */}
-            </label>
-            </div>   
-      
-
-        </Grid>
+      <><Grid container spacing={2} rowSpacing={1} justifyContent="space-evenly" alignItems="stretch" sx={{ paddingTop: '10px' }}>
+            <Grid item xs={12}>
+                <Typography variant="h3" gutterBottom> Карта советской архитектуры </Typography>
+            </Grid>     
+        
             <Grid item xs={8}>
                 <Box>
                 <Paper elevation={3}>
-
                         <MapContainer center={position} zoom={3.2} minZoom={2} scrollWheelZoom={true} attributionControl={false}>
                             {/* // attributionControl={false} > */}
                             <TileLayer
@@ -126,17 +106,35 @@ export function NewMap() {
                     </MapContainer>
                     
                 </Paper> </Box>
-
-        </Grid>
-        <Grid item xs={3}>
-                <Box>
+            </Grid>
+            <Grid item xs={3} >
+            <Box>  
+            <TextField 
+            // color= {inputColor}
+            margin="normal"
+            fullWidth                         
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            label="Поиск по дате"
+            sx={{
+                borderColor: {
+                  color: "red",
+                //   background: "green"
+                }
+              }}
+            // multiline
+            />
+            </Box>  
+    
+        
+            <Box>
                     <Paper elevation={3}>
 
                         <Legend/>
                     </Paper>
                 </Box>
-            </Grid>
 
+            </Grid>
 
       </Grid>
 
