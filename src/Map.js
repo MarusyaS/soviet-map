@@ -8,7 +8,7 @@ import 'leaflet/dist/leaflet.css';
 // import API_BASE_URL from './config';
 import './Map.css';
 import React, {useState} from "react";
-import items from './soviet_arch.json';
+import items from './soviet_arch_new.json';
 import {constructivismIcon, postconstructivismIcon, postconstructivismorientIcon,  neoclassicIcon, modernismIcon, functionalismIcon, eclecticIcon, constructneoclassIcon, postconstructneoclassIcon, unknownIcon} from './Markers';
 import {
     Typography,
@@ -26,7 +26,7 @@ import { red } from '@mui/material/colors';
 const position = [54.104403, 51.175140];
 const inputColor = red[800];
 
-var ImgSrc = 'https://pastvu.com/_p/d/h/u/a/huannyd9o8722acob6.jpg';
+// var ImgSrc = 'https://pastvu.com/_p/d/h/u/a/huannyd9o8722acob6.jpg';
 
 
 
@@ -93,9 +93,15 @@ export function NewMap() {
                                      }
                                          >
                                      <Popup>
-                                     <img src={ImgSrc} style={{width: '200px',  display: 'block', margin: '0 auto' }} alt="Illustartion"/> 
-                                     
-                                      <br /> <b>Автор: </b> {item.Author}<br /> <b>Год: </b>{item.Year} <br /> <b>Тип памятника: </b> {item.Type} <br/> <b>Стиль: </b> {item.style} <br/> <br/> {item.Description} <br/> <b>Адрес: </b> {item.Adress} 
+                                        {(item.Image !== undefined) & (item.Image !== null) ? 
+                                       
+                                     <img src={item.Image} style={{width: '200px',  display: 'block', margin: '0 auto' }} alt="Illustartion"/>
+                                     : null}
+                                     {/* {(item.Author !== undefined) & (item.Author !== null) & (item.Author !== '?') ? 
+                                       
+                                       <b>Автор:</b> {item.Author} 
+                                       : null} */}
+                                       <b>Автор: </b> {item.Author}  <br /> <b> Год: </b>{item.Year} <br /> <b>Тип памятника: </b> {item.Type} <br/> <b>Стиль: </b> {item.style} <br/> <br/> {item.Description} <br/> <b>Адрес: </b> {item.Adress} 
                      
                                      </Popup>
                                      </Marker>))}
