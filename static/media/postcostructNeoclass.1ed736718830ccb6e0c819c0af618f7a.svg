@@ -1,0 +1,11 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" 
+        viewBox="0 0 100 100" xmlSpace="preserve">
+        <defs>
+        <linearGradient id="half-grad">
+        
+        <stop offset="50%" stop-color="rgb(0, 111, 72)"/>
+        <stop offset="50%" stop-color="rgb(255, 83, 0)"/>
+        </linearGradient>
+        </defs>
+        <circle style="fill:url(#half-grad);stroke:#fcfcfc;stroke-width:4;stroke-miterlimit:10;"  cx="50" cy="50" r="46"/>
+        </svg>

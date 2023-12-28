@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/soviet-map/static/css/main.d24998c8.css",
+    "main.js": "/soviet-map/static/js/main.ea3fbee2.js",
+    "static/js/787.1d644faf.chunk.js": "/soviet-map/static/js/787.1d644faf.chunk.js",
+    "static/media/logo.svg": "/soviet-map/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/soviet-map/index.html",
+    "static/media/postcostructNeoclass.svg": "/soviet-map/static/media/postcostructNeoclass.1ed736718830ccb6e0c819c0af618f7a.svg",
+    "static/media/constructNeoclass.svg": "/soviet-map/static/media/constructNeoclass.028612b8f9a9eef41b4cc5aa396a4bee.svg",
+    "static/media/construct.svg": "/soviet-map/static/media/construct.75829f1c2b32c87bbb15c2ef5cd3ab2d.svg",
+    "static/media/eclectic.svg": "/soviet-map/static/media/eclectic.46f982ea54aa5569045940b8b9905859.svg",
+    "static/media/functional.svg": "/soviet-map/static/media/functional.733c4d76cb2c1396992d9b6bf64919b0.svg",
+    "static/media/modernism.svg": "/soviet-map/static/media/modernism.8d9f6c1182125f46249398b95f898a7f.svg",
+    "static/media/neoclassic.svg": "/soviet-map/static/media/neoclassic.39b1ab4c53e1ea3a2ffb58becd332fdb.svg",
+    "static/media/postconstruct.svg": "/soviet-map/static/media/postconstruct.0a880a827bb560b3f09be8c22db09b0d.svg",
+    "static/media/postconstructorieny.svg": "/soviet-map/static/media/postconstructorieny.a733bf47380068c7503816c2b20036a0.svg",
+    "static/media/unknown.svg": "/soviet-map/static/media/unknown.6c2ab542303523cf0345ff896954d170.svg",
+    "main.d24998c8.css.map": "/soviet-map/static/css/main.d24998c8.css.map",
+    "main.ea3fbee2.js.map": "/soviet-map/static/js/main.ea3fbee2.js.map",
+    "787.1d644faf.chunk.js.map": "/soviet-map/static/js/787.1d644faf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d24998c8.css",
+    "static/js/main.ea3fbee2.js"
+  ]
+}
