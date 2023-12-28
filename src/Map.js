@@ -95,7 +95,7 @@ export function NewMap() {
                                      <Popup>
                                         {(item.Image !== undefined) & (item.Image !== null) ? 
                                        
-                                     <img src={item.Image} style={{width: '200px',  display: 'block', margin: '0 auto' }} alt="Illustartion"/>
+                                     <img src={item.Image} style={{width: '200px',  display: 'block', margin: '0 auto' }} alt="Illustration"/>
                                      : null}
                                      {/* {(item.Author !== undefined) & (item.Author !== null) & (item.Author !== '?') ? 
                                        
