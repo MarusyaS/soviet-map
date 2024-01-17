@@ -101,6 +101,7 @@ export function NewMap() {
                                        
                                        <b>Автор:</b> {item.Author} 
                                        : null} */}
+                                       <b> {item.Title} </b> <br /> 
                                        <b>Автор: </b> {item.Author}  <br /> <b> Год: </b>{item.Year} <br /> <b>Тип памятника: </b> {item.Type} <br/> <b>Стиль: </b> {item.style} <br/> <br/> {item.Description} <br/> <b>Адрес: </b> {item.Adress} 
                      
                                      </Popup>
