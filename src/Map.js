@@ -8,7 +8,7 @@ import 'leaflet/dist/leaflet.css';
 // import API_BASE_URL from './config';
 import './Map.css';
 import React, {useState} from "react";
-import items from './soviet_arch_new.json';
+import items from './soviet_arch_jan.json';
 import {constructivismIcon, postconstructivismIcon, postconstructivismorientIcon,  neoclassicIcon, modernismIcon, functionalismIcon, eclecticIcon, constructneoclassIcon, postconstructneoclassIcon, unknownIcon} from './Markers';
 import {
     Typography,
@@ -57,9 +57,9 @@ export function NewMap() {
     return (
 
       <><Grid container spacing={2} rowSpacing={1} justifyContent="space-evenly" alignItems="stretch" sx={{ paddingTop: '10px' }}>
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
                 <Typography variant="h3" gutterBottom> Карта советской архитектуры </Typography>
-            </Grid>     
+            </Grid>      */}
         
             <Grid item xs={8}>
                 <Box>
